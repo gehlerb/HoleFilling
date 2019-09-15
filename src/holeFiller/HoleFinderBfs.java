@@ -14,7 +14,7 @@ import primitives.Pixel;
  * by the boundary or by the hole itself I chose to define the hole with both
  *
  */
-public class HoleFinder {
+public class HoleFinderBfs implements IholeFinder {
 
 	private static final int HOLE = -1;
 	private double[][] mImage;
@@ -22,7 +22,7 @@ public class HoleFinder {
 	private int mCols;
 	private Iconnected mConnections;
 
-	public HoleFinder(double[][] image, Iconnected connections) {
+	public HoleFinderBfs(double[][] image, Iconnected connections) {
 		setImage(image);
 		setConnections(connections);
 	}
@@ -40,11 +40,13 @@ public class HoleFinder {
 	public void setConnections(Iconnected connections) {
 		this.mConnections = connections;
 	}
-
+	
+	@Override
 	public Collection<Pixel> getBoundary() {
 		return holeFinder().get(0);
 	}
 	
+	@Override
 	public Collection<Pixel> getHole(){
 		return holeFinder().get(1);
 	}

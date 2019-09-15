@@ -26,7 +26,7 @@ public class LinearHoleFiller implements IholeFiller {
 	}
 
 	@Override
-	public double[][] holeFiller(double[][] image, HoleFinder hole) {
+	public double[][] holeFiller(double[][] image, IholeFinder hole) {
 		Queue<Pixel> boundaryPixels = (Queue<Pixel>) hole.getBoundary();
 		while (!boundaryPixels.isEmpty()) {
 

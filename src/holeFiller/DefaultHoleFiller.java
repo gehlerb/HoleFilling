@@ -23,7 +23,7 @@ public class DefaultHoleFiller implements IholeFiller {
 	}
 
 	@Override
-	public double[][] holeFiller(double[][] image, HoleFinder hole) {
+	public double[][] holeFiller(double[][] image, IholeFinder hole) {
 
 		List<Pixel> boundaryPixels = (List<Pixel>) hole.getBoundary();
 		List<Pixel> holePixels = (List<Pixel>) hole.getHole();

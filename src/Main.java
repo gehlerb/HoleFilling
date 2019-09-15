@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 import org.opencv.core.Core;
 import holeFiller.DefaultHoleFiller;
+import holeFiller.IholeFiller;
 import holeFillerHelpers.DefaultWeightFunction;
 import holeFillerHelpers.EightConnected;
 import holeFillerHelpers.FourConnected;
@@ -37,8 +38,8 @@ public class Main {
 		System.out.println("Enter the parameter z (double value): ");
 		double z = scanner.nextDouble();
 
-		PictureFixer pf = new PictureFixer(imagePath, connections,
-				new DefaultHoleFiller(new DefaultWeightFunction(epsilon, z)));
+		IholeFiller holeFiller=new DefaultHoleFiller(new DefaultWeightFunction(epsilon,z));
+		PictureFixer pf = new PictureFixer(imagePath, connections,holeFiller);
 		pf.fillTheHole();
 		scanner.close();
 

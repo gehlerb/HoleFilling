@@ -3,9 +3,10 @@ package unitTest;
 import org.junit.Test;
 import org.opencv.core.Core;
 
-import holeFiller.HoleFinder;
+import holeFiller.HoleFinderBfs;
 import holeFiller.DefaultHoleFiller;
 import holeFiller.IholeFiller;
+import holeFiller.IholeFinder;
 import holeFiller.LinearHoleFiller;
 import holeFillerHelpers.DefaultWeightFunction;
 import holeFillerHelpers.EightConnected;
@@ -43,7 +44,7 @@ public class PictureFixerTest {
 	{
 		ImageConvertor imageToArr = new ImageConvertor(test1);
 		double[][] image = imageToArr.convertImageToArr();
-		HoleFinder boundary = new HoleFinder(image, connectedEight);
+		IholeFinder boundary = new HoleFinderBfs(image, connectedEight);
 		image = dHoleFiller.holeFiller(image, boundary);
 		imageToArr.convertArrToImage(image);
 	}
@@ -53,7 +54,7 @@ public class PictureFixerTest {
 	{
 		ImageConvertor imageToArr = new ImageConvertor(test2);
 		double[][] image = imageToArr.convertImageToArr();
-		HoleFinder boundary = new HoleFinder(image, connectedFour);
+		IholeFinder boundary = new HoleFinderBfs(image, connectedFour);
 		image = eightHoleFiller.holeFiller(image, boundary);
 		imageToArr.convertArrToImage(image);
 	}
@@ -64,7 +65,7 @@ public class PictureFixerTest {
 	{
 		ImageConvertor imageToArr = new ImageConvertor(test3);
 		double[][] image = imageToArr.convertImageToArr();
-		HoleFinder boundary = new HoleFinder(image, connectedEight);
+		IholeFinder boundary = new HoleFinderBfs(image, connectedEight);
 		image = fourHoleFiller.holeFiller(image, boundary);
 		imageToArr.convertArrToImage(image);
 	}
@@ -74,7 +75,7 @@ public class PictureFixerTest {
 	{
 		ImageConvertor imageToArr = new ImageConvertor(test4);
 		double[][] image = imageToArr.convertImageToArr();
-		HoleFinder boundary = new HoleFinder(image, connectedFour);
+		IholeFinder boundary = new HoleFinderBfs(image, connectedFour);
 		image = dHoleFiller.holeFiller(image, boundary);
 		imageToArr.convertArrToImage(image);
 	}
@@ -84,7 +85,7 @@ public class PictureFixerTest {
 	{
 		ImageConvertor imageToArr = new ImageConvertor(test5);
 		double[][] image = imageToArr.convertImageToArr();
-		HoleFinder boundary = new HoleFinder(image, connectedEight);
+		IholeFinder boundary = new HoleFinderBfs(image, connectedEight);
 		image = dHoleFiller.holeFiller(image, boundary);
 		imageToArr.convertArrToImage(image);
 	}

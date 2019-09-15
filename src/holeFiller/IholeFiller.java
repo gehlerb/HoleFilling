@@ -15,5 +15,5 @@ public interface IholeFiller {
 	 *            HoleFinder 
 	 * @return a 2D Array of double
 	 */
-	public double[][] holeFiller(double[][] image, HoleFinder hole);
+	public double[][] holeFiller(double[][] image, IholeFinder hole);
 }

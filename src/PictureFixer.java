@@ -1,5 +1,6 @@
-import holeFiller.HoleFinder;
+import holeFiller.HoleFinderBfs;
 import holeFiller.IholeFiller;
+import holeFiller.IholeFinder;
 import holeFillerHelpers.Iconnected;
 import imageLoader.ImageConvertor;
 
@@ -38,7 +39,7 @@ public class PictureFixer {
 	public void fillTheHole() throws Exception {
 		ImageConvertor imageToArr = new ImageConvertor(mImageSource);
 		double[][] image = imageToArr.convertImageToArr();
-		HoleFinder hole = new HoleFinder(image, mConnections);
+		IholeFinder hole = new HoleFinderBfs(image, mConnections);
 		image = mHoleFiller.holeFiller(image, hole);
 		imageToArr.convertArrToImage(image);
 	}
